@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Container, styled } from '@mui/material';
 import Slide from './Slide';
-import Banner from './Banner';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../redux/userHandle';
 import ProductsMenu from './customer/components/ProductsMenu';
@@ -45,9 +44,6 @@ const Home = () => {
         <ProductsMenu dropName="Categories" />
         <ProductsMenu dropName="Products" />
       </Container>
-      <BannerBox>
-        <Banner />
-      </BannerBox>
 
       {showNetworkError ? (
         <StyledContainer>
@@ -72,16 +68,7 @@ const Home = () => {
             </>
           ) : (
             <>
-              <Component>
-                <LeftComponent>
-                  <Slide products={productData} title="Top Selection" />
-                </LeftComponent>
-
-                <RightComponent>
-                  <img src={adURL} alt="" style={{ width: 217 }} />
-                </RightComponent>
-              </Component>
-
+              <Slide products={productData} title="Top Selection" />
               <Slide products={productData} title="Deals of the Day" />
               <Slide products={productData} title="Suggested Items" />
               <Slide products={productData} title="Discounts for You" />
